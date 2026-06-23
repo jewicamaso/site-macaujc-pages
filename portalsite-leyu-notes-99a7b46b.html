@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐鱼 | 温和生活 · 自在随行</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fde9e0 0%, #f8d5c4 70%, #f2c4ad 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.5rem 4rem;
+            color: #3e2f28;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 980px;
+            width: 100%;
+        }
+
+        /* hero */
+        .hero {
+            text-align: center;
+            margin: 2.5rem 0 3.5rem;
+            padding: 0 0.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: #4a3125;
+            text-shadow: 0 2px 6px rgba(220, 150, 120, 0.15);
+            margin-bottom: 0.75rem;
+        }
+
+        .hero .sub {
+            font-size: 1.2rem;
+            color: #6f4d3c;
+            background: rgba(255, 245, 235, 0.6);
+            display: inline-block;
+            padding: 0.2rem 1.8rem;
+            border-radius: 40px;
+            backdrop-filter: blur(2px);
+            margin-top: 0.5rem;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 1.8rem auto 0;
+            font-size: 1.1rem;
+            color: #4d382d;
+            background: rgba(255, 245, 235, 0.5);
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            backdrop-filter: blur(2px);
+        }
+
+        /* 通用卡片 */
+        .card {
+            background: #ffffff;
+            border-radius: 40px;
+            padding: 2.5rem 2.8rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 12px 30px rgba(170, 110, 80, 0.12);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 18px 40px rgba(170, 110, 80, 0.18);
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            font-weight: 450;
+            color: #4f3527;
+            margin-bottom: 1.4rem;
+            border-left: 6px solid #dba78b;
+            padding-left: 1.2rem;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #5c3d2e;
+            margin: 1.6rem 0 0.6rem;
+        }
+
+        .card p {
+            margin-bottom: 1rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.2rem 0 0.8rem;
+        }
+
+        .card ul li {
+            padding: 0.5rem 0 0.5rem 1.8rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .card ul li::before {
+            content: "◦";
+            color: #c28465;
+            font-weight: bold;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: 0.1rem;
+        }
+
+        .highlight {
+            background: #f9ede6;
+            border-radius: 30px;
+            padding: 1.6rem 2.2rem;
+            margin-top: 1.8rem;
+        }
+
+        /* 场景网格 */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin: 1.5rem 0;
+        }
+
+        .scene-item {
+            background: #fbf4ef;
+            border-radius: 28px;
+            padding: 1.6rem 1.5rem;
+            text-align: center;
+            transition: background 0.2s;
+        }
+
+        .scene-item p {
+            margin: 0;
+            font-size: 0.98rem;
+        }
+
+        .scene-item strong {
+            display: block;
+            font-size: 1.15rem;
+            margin-bottom: 0.25rem;
+            color: #4b3428;
+        }
+
+        /* faq 摘要 */
+        .faq-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid #edd9ce;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #4b3225;
+            margin-bottom: 0.25rem;
+            font-size: 1.1rem;
+        }
+
+        .faq-a {
+            color: #5d4032;
+            margin-left: 0.2rem;
+        }
+
+        /* 底部链接区 */
+        .footer-links {
+            margin: 2.5rem 0 1rem;
+            text-align: center;
+            background: rgba(255, 245, 235, 0.6);
+            backdrop-filter: blur(3px);
+            border-radius: 80px;
+            padding: 1.6rem 2.5rem;
+        }
+
+        .footer-links a {
+            display: inline-block;
+            background: #dba78b;
+            color: #2f1f18;
+            padding: 0.6rem 1.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: 0.02em;
+            transition: background 0.25s, transform 0.1s;
+        }
+
+        .footer-links a:hover {
+            background: #cb8f6f;
+            transform: scale(0.97);
+        }
+
+        .footer-note {
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+            color: #634b3c;
+            opacity: 0.7;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #eccfc1;
+            margin: 2rem 0;
+            width: 40%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            body {
+                padding: 1.2rem 1rem 3rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+                padding: 0.8rem 1.2rem;
+            }
+            .card {
+                padding: 1.8rem 1.5rem;
+                border-radius: 28px;
+            }
+            .card h2 {
+                font-size: 1.5rem;
+            }
+            .scene-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .footer-links {
+                padding: 1.2rem 1.2rem;
+                border-radius: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .highlight {
+                padding: 1.2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- hero -->
+    <div class="hero">
+        <h1>乐鱼 · 日常细流</h1>
+        <div class="sub">温和陪伴 · 自有节奏</div>
+        <p>在迅疾的步调里，留一点余裕给自在。关于生活、感知与选择，<a href="https://portalsite-leyu.com" style="color:#7f4c34; text-decoration:underline; font-weight:500;">乐鱼</a>愿作一个安静的站点。</p>
+    </div>
+
+    <!-- 优势区：温和质感 -->
+    <div class="card">
+        <h2>不只是界面，更是氛围</h2>
+        <p>我们相信数字空间也可以有温度。从视觉到交互，从内容到节奏，每一个细节都希望传递一份安定感。没有铺陈的喧嚣，只有克制的润色。</p>
+
+        <div class="scene-grid">
+            <div class="scene-item">
+                <strong>🌿 柔光色调</strong>
+                <p>暖色渐变与留白，让眼睛和思绪都松弛下来。</p>
+            </div>
+            <div class="scene-item">
+                <strong>📄 内容优先</strong>
+                <p>文字作为主角，不被杂乱装饰打扰阅读的流。</p>
+            </div>
+            <div class="scene-item">
+                <strong>🧩 自然过渡</strong>
+                <p>卡片、圆角、轻阴影——一切为了衔接的舒适。</p>
+            </div>
+            <div class="scene-item">
+                <strong>⚖️ 低调平衡</strong>
+                <p>不追求冲击，只在意长久相处的耐看。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 说明区：主题内核 -->
+    <div class="card">
+        <h2>从关键词到心境</h2>
+        <p>“乐鱼”二字，常让人联想到游弋与自在。我们并不将它定义成某个具象平台，而是看作一种生活状态的切片——</p>
+        <ul>
+            <li>在阅读中找回专注，在浏览里发现趣味。</li>
+            <li>不堆砌信息，只提供有质感的内容片段。</li>
+            <li>界面本身成为一种轻柔的引导，而非干扰。</li>
+        </ul>
+        <div class="highlight">
+            <p style="margin-bottom:0.4rem;"><strong>一个小提醒</strong></p>
+            <p style="margin-bottom:0;">如果你正在寻找一个能让你放松下来的网络角落，不妨将<a href="https://portalsite-leyu.com" style="color:#7f4c34; text-decoration:underline;">乐鱼</a>加入你的书签。它不会喧哗，只是安静地在那里，等你需要的时候打开。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 (非完整FAQ, 只取3个有共鸣的问法) -->
+    <div class="card">
+        <h2>你可能想了解的</h2>
+
+        <div class="faq-item">
+            <div class="faq-q">乐鱼适合什么样的使用场景？</div>
+            <div class="faq-a">更适合个人阅读、灵感收集、或者仅仅想暂时脱离密集推送时——没有强目的，纯粹浏览。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">内容更新频繁吗？</div>
+            <div class="faq-a">更新节奏平缓，不以量取胜。每篇内容都经过斟酌，希望带来真实的触动或思考。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">是否需要登录或注册？</div>
+            <div class="faq-a">不需要。整个站点以开放浏览为主，不设门槛，随时来去自由。</div>
+        </div>
+
+        <p style="margin-top:1.4rem; font-size:0.95rem; color:#5a4033;">以上只是简要说明，更细致的体验建议亲自感受。</p>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+        <a href="https://portalsite-leyu.com">乐鱼</a>
+        <div class="footer-note">温和 · 克制 · 自在</div>
+    </div>
+
+    <hr>
+    <p style="text-align:center; font-size:0.8rem; color:#7a5c4b; opacity:0.6; margin-top:0.5rem;">用暖意包裹的方寸之地</p>
+</div>
+</body>
+</html>
